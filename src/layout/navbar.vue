@@ -242,26 +242,26 @@
 @media screen and (max-width:768px) {
 
     .gotop {
-        width: sizem(34.24);
-        height: sizem(34.24);
-        right: sizem(20);
-        bottom: sizem(80);
+        width: size-m(34.24);
+        height: size-m(34.24);
+        right: size-m(20);
+        bottom: size-m(80);
     }
 
     .nav {
-        // width: sizem(350);
+        // width: size-m(350);
         right:0;
         top:0;
-        // padding: 0 sizem(8);
+        // padding: 0 size-m(8);
         height:auto;
         border-radius: 9999px;
 
         .logo {
-            width: sizem(80);
-            height: sizem(42);
+            width: size-m(80);
+            height: size-m(42);
             transition: all .2s;
-            top: sizem(13);
-            left:sizem(10);
+            top: size-m(13);
+            left:size-m(10);
 
             &.open {
               //  filter: brightness(0) invert(1);
@@ -269,26 +269,26 @@
         }
 
         .menu-btn {
-            width: sizem(40);
-            height: sizem(40);
+            width: size-m(40);
+            height: size-m(40);
             padding:0;
-            font-size: sizem(20);
-            margin: sizem(10);
+            font-size: size-m(20);
+            margin: size-m(10);
 
             p {
-                font-size: sizem(14);
+                font-size: size-m(14);
                 font-weight: 100;
             }
 
             .bar {
-                width: sizem(32);
+                width: size-m(32);
 
                 &::after {
-                    bottom: -#{sizem(10)};
+                    bottom: -#{size-m(10)};
                 }
 
                 &::before {
-                    top: -#{sizem(10)};
+                    top: -#{size-m(10)};
                 }
             }
 
@@ -334,8 +334,8 @@
             transform: translateX(150%);
             transition: all .5s;
            // padding: 0;
-           font-size: sizem(18);
-            gap: sizem(23);
+           font-size: size-m(18);
+            gap: size-m(23);
             justify-content: center;
             flex-direction: column;
         padding: 0;
@@ -344,7 +344,7 @@
             .menu-item {
 
                 img {
-                    width: sizem(30);
+                    width: size-m(30);
                 }
             &.btn2{
                 margin:0 auto -.5em auto;
@@ -371,9 +371,9 @@
                 left: unset;
                 bottom: 0;
                 transform: translateX(0);
-                top: sizem(10);right: sizem(10);
-                width: sizem(44);
-                height: sizem(44);
+                top: size-m(10);right: size-m(10);
+                width: size-m(44);
+                height: size-m(44);
                 cursor: pointer;
                 margin:0;
                 display:flex;

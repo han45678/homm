@@ -247,60 +247,60 @@
 
 @media screen and (max-width:768px) {
   .order-section {
-    min-height: sizem(800);
+    min-height: size-m(800);
     position: relative;
     // overflow: hidden;
-   // padding-top: sizem(200);
+   // padding-top: size-m(200);
 
     .bg-image {
       position: absolute;
       width: 100%;
-      left: -#{sizem(30)};
-      bottom: sizem(590);
+      left: -#{size-m(30)};
+      bottom: size-m(590);
     }
 
   }
 
   .order {
     width: 100%;
-    padding-bottom: sizem(63);
+    padding-bottom: size-m(63);
 
     .cus-divider {
       margin: 0 auto;
-      width: sizem(117);
-      height: sizem(2);
-      margin-bottom: sizem(25);
+      width: size-m(117);
+      height: size-m(2);
+      margin-bottom: size-m(25);
       background-color: #055F76;
     }
 
     .order-title {
-      font-size: sizem(27);
+      font-size: size-m(27);
       padding-top:2em;
-      .line{width: sizem(258);}
+      .line{width: size-m(258);}
     }
     .order-subTitle{
-      font-size: sizem(13);
+      font-size: size-m(13);
       padding-top:0;
     }
 
 
     .form {
-      width: sizem(310);
+      width: size-m(310);
       min-width: 0;
       height: auto;
-      gap: sizem(15);
-      margin-bottom: sizem(20);
+      gap: size-m(15);
+      margin-bottom: size-m(20);
       flex-direction: column;
-      margin-top: sizem(20);
+      margin-top: size-m(20);
 
       .left {
         width: 100%;
-        gap: sizem(15);
+        gap: size-m(15);
       }
 
       .right {
         width: 100%;
-        height: sizem(100);
+        height: size-m(100);
         .row{
           height: 7em;
         }
@@ -312,13 +312,13 @@
     }
 
     .send {
-      font-size: sizem(21);
-      width: sizem(310);
-      height: sizem(72);
+      font-size: size-m(21);
+      width: size-m(310);
+      height: size-m(72);
     }
 
     .control {
-      font-size: sizem(14.6);
+      font-size: size-m(14.6);
     }
   }
 }

@@ -74,25 +74,25 @@ $house-c2:#333;
 @media screen and (max-width:768px) {
 .house {
     // background:#fff;
-  //  height: sizem(400);
-    font-size: sizem(13);
+  //  height: size-m(400);
+    font-size: size-m(13);
 }
     .footer {
-        margin-bottom: sizem(0);
-        //margin-bottom: sizem(63);
+        margin-bottom: size-m(0);
+        //margin-bottom: size-m(63);
     }
 
     .info-box {
-        width: sizem(330);
+        width: size-m(330);
         padding: 0;
 
         .title {
-            font-size: sizem(29);
+            font-size: size-m(29);
             width: auto;
         }
 
         .info-items {
-            row-gap: sizem(20);
+            row-gap: size-m(20);
             .item {
                 font-size:16px;
             }

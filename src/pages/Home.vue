@@ -1,33 +1,35 @@
 <template>
   <div ref="gtmNoScript" />
   <!--loading-->
-  <div v-bind:class="{
-    'opacity-0': !isLoading,
-    'pointer-events-none': !isLoading
-  }"
-    class="transition-all duration-500	flex-col flex items-center justify-center fixed w-screen h-screen top-0 left-0 bg-white z-[10000]">
-    <img class="w-32" src="//h35.banner.tw/img//loading_w.gif" alt="loading" srcset="">
+  <div
+    v-bind:class="{
+      'opacity-0': !isLoading,
+      'pointer-events-none': !isLoading
+    }"
+    class="transition-all duration-500 flex-col flex items-center justify-center fixed w-screen h-screen top-0 left-0 bg-white z-[10000]"
+  >
+    <img
+      class="w-32"
+      src="//h35.banner.tw/img//loading_w.gif"
+      alt="loading"
+      srcset=""
+    />
   </div>
   <!--loading end-->
-<!--
+  <!--
   'Noto_Serif_TC',serif
   'Noto_Sans_TC',sans-serif
   -->
 
-  <div class="home overflow-hidden font-['Noto_Sans_TC',sans-serif] bg-[#D0D3D3] text-[#3E3A39]">
+  <div
+    class="home overflow-hidden font-['Noto_Sans_TC',sans-serif] bg-[#D0D3D3] text-[#3E3A39]"
+  >
     <h1 class="absolute opacity-0 pointer-events-none">{{ info.caseName }}</h1>
     <S1 />
-  <!--
-     <div class="bgs12">
-    <div class="bg" v-if="isMobile"><img src="@/section/s1/bgm.jpg"><img src="@/section/s1/bgm.jpg"><img src="@/section/s1/bgm.jpg"><img src="@/section/s1/bgm.jpg"></div>
-    <div class="bg" v-else><img src="@/section/s1/bg.jpg"><img src="@/section/s1/bg.jpg"><img src="@/section/s1/bg.jpg"><img src="@/section/s1/bg.jpg"></div><S2 />
-    <S3 /></div>
-    <S1new />
-    <S1new2 /> -->
+    <S2 />
     <Order />
   </div>
 </template>
-
 
 <style lang="scss">
 @import '@/assets/style/function.scss';
@@ -38,13 +40,14 @@
   }
 }
 
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active,
+.fade-leave-active {
   transition: opacity 0.2s;
 }
-.fade-enter, .fade-leave-to {
+.fade-enter,
+.fade-leave-to {
   opacity: 0;
 }
-
 
 img {
   display: inline;
@@ -66,15 +69,20 @@ img {
     }
 }
     */
-.home{
+.home {
   position: relative;
-  &::before{
-    content: "";display: block;
-    position: fixed;top: 0;left: 0;
-    width: 100%;bottom: 0;right: 0;
-  /* 
+  &::before {
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    right: 0;
+    /* 
     background: url("@/section/s1/obgm.jpg") center center;
-    background-size: sizem(375) auto;
+    background-size: size-m(375) auto;
     @media screen and (min-width:768px) {
       background-image: url("@/section/s1/obg.jpg");
       background-size: 100% auto;
@@ -90,32 +98,29 @@ img {
   url('@/section/form/com4f.ttf') format("opentype"),
 }
   */
-
 </style>
 
 <script setup>
-import info from "@/info"
-import S1 from "@/section/s1.vue" 
-// import S2 from "@/section/s2.vue" 
-// import S3 from "@/section/s3.vue" 
-import Order from "@/section/order.vue"
-import {computed, getCurrentInstance, onMounted, ref } from "vue"
+import info from '@/info';
+import S1 from '@/section/s1.vue';
+import S2 from '@/section/s2.vue';
+import Order from '@/section/order.vue';
+import { computed, getCurrentInstance, onMounted, ref } from 'vue';
 const globals = getCurrentInstance().appContext.config.globalProperties;
 
 const isMobile = computed(() => globals.$isMobile());
 
 import AOS from 'aos';
 
-const isLoading = ref(true)
-const gtmNoScript = ref('')
+const isLoading = ref(true);
+const gtmNoScript = ref('');
 onMounted(() => {
   window.onload = function () {
-    isLoading.value = false
+    isLoading.value = false;
     AOS.init({
       offset: 0,
       duration: 2000
     });
   };
-
-})
+});
 </script>

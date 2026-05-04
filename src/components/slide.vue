@@ -61,15 +61,15 @@
 
     .slide {
         .caption {
-            font-size: sizem(12);
-            right: sizem(10);
-            bottom: sizem(10);
+            font-size: size-m(12);
+            right: size-m(10);
+            bottom: size-m(10);
         }
     }
 
     .splide__pagination {
-        gap: sizem(10);
-        padding: 0 sizem(10);
+        gap: size-m(10);
+        padding: 0 size-m(10);
     }
 }
 </style>

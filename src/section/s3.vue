@@ -42,11 +42,11 @@
   background:#fff url("./s3/bgm.jpg") no-repeat center bottom;
   background-size:100% auto;
   color: #777;
-  font-size: sizem(13);
+  font-size: size-m(13);
   line-height: 1.7;
   font-weight: 700;
-  height: sizem(1020);
-  padding:sizem(50) 0 0 0;
+  height: size-m(1020);
+  padding:size-m(50) 0 0 0;
   position: relative;
   
 @media screen and (min-width: 768px) {
@@ -85,9 +85,9 @@
 .en{
   position: absolute;
   left: 0;right: 0;margin: auto;
-  width:sizem(375);
+  width:size-m(375);
   top:auto;
-  bottom:sizem(275);
+  bottom:size-m(275);
 @media screen and (min-width: 768px) {
   width:size(1710);
    top:size(40);
@@ -99,8 +99,8 @@
 .logo{
   position: absolute;
   left: 0;right: 0;margin: auto;
-  width:sizem(105);
-  bottom:sizem(13);filter:drop-shadow(0 0 5px rgba(0,0,0,.6));
+  width:size-m(105);
+  bottom:size-m(13);filter:drop-shadow(0 0 5px rgba(0,0,0,.6));
 @media screen and (min-width: 768px) {
   width:size(340);
   left: auto;right:size(110);
