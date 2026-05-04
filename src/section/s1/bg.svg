@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+  viewBox="0 0 670 959"  xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <defs>
+    <!-- 漸層顏色 -->
+    <linearGradient id="lg" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" />
+      <stop offset=".9" stop-color="#fff" />
+      <stop offset="1" stop-color="#fff0" />
+    </linearGradient>
+    <linearGradient id="lg1" x1="0" y1="-10" x2="0" y2="-9" xlink:href="#lg">
+     <animate attributeName="y1" values="-10;479" dur="2.5s" fill="freeze" begin="1s" />
+     <animate attributeName="y2" values="-9;480" dur="2.5s" fill="freeze" begin="1s" />
+    </linearGradient>
+    <linearGradient id="lg2" x1="0" y1="701" x2="0" y2="700" xlink:href="#lg">
+     <animate attributeName="y1" values="701;480" dur="1s" fill="freeze" begin="2.5s" />
+     <animate attributeName="y2" values="700;479" dur="1s" fill="freeze" begin="2.5s" />
+    </linearGradient>
+    <linearGradient id="lg3" x1="0" y1="690" x2="10" y2="680" xlink:href="#lg">
+      <animate attributeName="x1" values="0;440" dur="2s" fill="freeze" begin="1.5s" />
+     <animate attributeName="x2" values="10;450" dur="2s" fill="freeze" begin="1.5s" />
+    </linearGradient>
+    <linearGradient id="lg4" x1="690" y1="0" x2="680" y2="10" xlink:href="#lg">
+     <animate attributeName="x1" values="690;360" dur="1s" fill="freeze" begin="2.5s" />
+     <animate attributeName="x2" values="680;350" dur="1s" fill="freeze" begin="2.5s" />
+    </linearGradient>
+  </defs>
+  <path fill="url(#lg1)" d="M124.3,0H0v89.8l410.1,387.7h213.7" />
+  <path fill="url(#lg2)" d="M966.2,982.7h124.3v-89.8l-410.1-387.7h-213.7" />
+  <path fill="url(#lg3)" d="M275.9,506.5L0,504.4v161.6l369.1,3.2v299.4h162.1v-201.4" />
+  <path fill="url(#lg4)" d="M711.8-56.7h-152.4V214.7l152.4,157.8" />
+</svg>
