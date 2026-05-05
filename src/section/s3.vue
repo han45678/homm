@@ -20,7 +20,6 @@
             <h2 class="main-text">兼得</h2>
             <h3 class="sub-text">雙重<br />生活</h3>
           </div>
-          <div class="divider-line"></div>
           <div class="text-right">
             <h2 class="target-text">的理想居所</h2>
           </div>
@@ -37,6 +36,29 @@
         </div>
       </div>
     </section>
+    <div class="swiper-container">
+      <Swiper
+        :slides-per-view="'auto'"
+        :centered-slides="true"
+        :space-between="15"
+        :loop="true"
+        :auto-height="true"
+        :modules="modules"
+        :pagination="{ clickable: true }"
+        :breakpoints="{
+          768: {
+            slidesPerView: 3,
+            slidesPerGroup: 1,
+            spaceBetween: 20,
+            centeredSlides: false
+          }
+        }"
+      >
+        <SwiperSlide v-for="(img, index) in images" :key="index">
+          <img :src="img" :alt="`slide ${index + 1}`" />
+        </SwiperSlide>
+      </Swiper>
+    </div>
   </article>
 </template>
 
@@ -44,15 +66,17 @@
 @import '@/assets/style/function.scss';
 
 .s3 {
+  background-color: #F0EEE9;
+
   .banyan-section {
     position: relative;
     width: 100%;
-    background-color: #f0ede6;
+    
     padding: size-m(60) size-m(20);
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 100vh;
+    // min-height: 100vh;
 
     @media screen and (min-width: 768px) {
       padding: size(100) size(150);
@@ -62,7 +86,7 @@
       position: static;
       margin-bottom: size-m(40);
       width: 100%;
-      text-align: center; // 手機版通常 Logo 會置中或依內容調整
+      text-align: left;
 
       @media screen and (min-width: 768px) {
         position: absolute;
@@ -70,7 +94,6 @@
         left: size(50);
         margin-bottom: 0;
         width: auto;
-        text-align: left;
       }
 
       .logo-svg {
@@ -82,42 +105,44 @@
     }
 
     .content-container {
-      max-width: size(1200);
       width: 100%;
       margin-top: 0;
 
       @media screen and (min-width: 768px) {
-        margin-top: size(100);
+        margin-top: size(0);
+        max-width: size(600);
       }
     }
 
     .hero-title {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: size-m(15);
+      gap: size-m(55);
       margin-bottom: size-m(30);
       position: relative;
       color: #002265;
+      justify-content: center;
+      align-items: self-end;
 
       @media screen and (min-width: 768px) {
         flex-direction: row;
         gap: size(40);
-        margin-bottom: size(60);
+        margin-bottom: size(50);
+        align-items: end;
+        justify-content: center;
       }
 
       .text-left {
         text-align: center;
         display: flex;
-        align-items: center;
+        align-items: end;
         gap: size-m(15);
+        position: relative;
         @media screen and (min-width: 768px) {
           gap: size(15);
         }
         .main-text {
           font-family: 'Noto Sans TC';
-          font-weight: 700;
+          font-weight: 300;
           font-size: size-m(29.45);
           line-height: size-m(38.56);
           letter-spacing: 0;
@@ -129,7 +154,7 @@
         }
 
         .sub-text {
-          font-weight: 300;
+          font-weight: 700;
           font-size: size-m(29.45);
           line-height: size-m(38.56);
           letter-spacing: 0;
@@ -146,19 +171,37 @@
             font-weight: 700; // 「生活」為粗體
           }
         }
-      }
 
-      .divider-line {
-        display: none; // 手機版標題通常垂直排列，可隱藏斜線或調整角度
-
-        @media screen and (min-width: 768px) {
-          display: block;
-          width: 1px;
-          height: size(100);
-          background-color: #002265;
-          transform: rotate(35deg);
+        &::before {
+          content: '';
+          position: absolute;
+          background-color: #162783;
+          transform: rotate(45deg);
+          width: size-m(1);
+          height: size-m(600);
+          right: size-m(-220);
+          bottom: size-m(-95);
+          @media screen and (min-width: 768px) {
+            transform: rotate(40deg);
+            width: size(3);
+            height: size(600);
+            right: size(-185);
+            bottom: size(-85);
+          }
         }
       }
+
+      // .divider-line {
+      //   // display: none; // 手機版標題通常垂直排列，可隱藏斜線或調整角度
+
+      //   @media screen and (min-width: 768px) {
+      //     display: block;
+      //     width: 1px;
+      //     height: size(700);
+      //     background-color: #002265;
+      //     transform: rotate(35deg);
+      //   }
+      // }
 
       .text-right {
         .target-text {
@@ -178,9 +221,10 @@
     }
 
     .description {
-      max-width: size(800);
       margin: 0 auto;
-
+      @media screen and (min-width: 768px) {
+        max-width: size(800);
+      }
       p {
         font-family: 'Noto Sans TC';
         font-weight: 300;
@@ -189,17 +233,67 @@
         letter-spacing: 0;
         color: #333;
         text-align: justify;
-        margin-bottom: size-m(12);
 
         @media screen and (min-width: 768px) {
           font-size: size(14);
           line-height: size(24);
           text-align: left;
-          margin-bottom: size(15);
         }
+      }
+    }
+  }
+
+  .swiper-container {
+    width: 100%;
+
+    :deep(.swiper-slide) { /* 手機版：設定寬度為 84% */
+      width: 84%;
+      height: auto; 
+      @media screen and (min-width: 768px) {
+        width: auto; /* 電腦版：重設寬度，讓 Swiper 自動計算 */
+      }
+      
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+    }
+
+    :deep(.swiper-pagination) {
+      position: static;
+      margin:size-m(20) 0;
+      @media screen and (min-width: 768px) {
+        margin:size(40) 0;
+      }
+
+      .swiper-pagination-bullet {
+        width: 6px;
+        height: 6px;
+        background-color: #828683;
+        opacity: 1;
+        margin: 0 5px;
+      }
+      .swiper-pagination-bullet-active {
+        background-color: #162783;
       }
     }
   }
 }
 </style>
-<script setup></script>
+<script setup>
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Pagination } from 'swiper';
+import 'swiper/css';
+import 'swiper/css/pagination';
+
+import img1 from './s3/1.jpg';
+import img2 from './s3/2.jpg';
+import img3 from './s3/3.jpg';
+import img4 from './s3/4.jpg';
+import img5 from './s3/5.jpg';
+
+const images = [img1, img2, img3, img4, img5];
+
+const modules = [Pagination];
+</script>
