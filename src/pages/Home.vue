@@ -27,6 +27,7 @@
     <h1 class="absolute opacity-0 pointer-events-none">{{ info.caseName }}</h1>
     <S1 />
     <S2 />
+    <S3 />
     <Order />
   </div>
 </template>
@@ -104,6 +105,7 @@ img {
 import info from '@/info';
 import S1 from '@/section/s1.vue';
 import S2 from '@/section/s2.vue';
+import S3 from '@/section/s3.vue';
 import Order from '@/section/order.vue';
 import { computed, getCurrentInstance, onMounted, ref } from 'vue';
 const globals = getCurrentInstance().appContext.config.globalProperties;
