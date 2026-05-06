@@ -1,6 +1,6 @@
 <template>
   <article
-    class="s3 relative"
+    class="s3 relative font-['Noto_Sans_TC']"
     id="s3"
   >
     <section class="banyan-section">

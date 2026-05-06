@@ -1,6 +1,6 @@
 <template>
   <article
-    class="s4 relative"
+    class="s4 relative font-['Noto_Sans_TC']"
     id="s4"
   >
     <div class="top">
