@@ -252,9 +252,7 @@
         position: absolute;
         left: 0;
         bottom: 0;
-        font-family: 'Verdana', sans-serif;
         font-weight: 400;
-        font-style: normal;
         font-size: size-m(16);
         line-height: size-m(42);
         letter-spacing: 0%;

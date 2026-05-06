@@ -130,10 +130,11 @@
     line-height: size-m(24);
     letter-spacing: 0%;
     text-align: center;
+    margin: auto;
 
     @media screen and (min-width: 768px) {
       max-width: size(1480);
-      padding: size(50) auto 0;
+      padding-top: size(50);
       font-weight: 300;
       font-size: size(14);
       line-height: size(24);
