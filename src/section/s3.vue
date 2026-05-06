@@ -54,8 +54,8 @@
           }
         }"
       >
-        <SwiperSlide v-for="(img, index) in images" :key="index">
-          <img :src="img" :alt="`slide ${index + 1}`" />
+        <SwiperSlide v-for="(img, index) in images" :key="index" data-text="實景拍攝" :data-name="img.name">
+          <img :src="img.pic" :alt="img.name" />
         </SwiperSlide>
       </Swiper>
     </div>
@@ -76,7 +76,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    // min-height: 100vh;
 
     @media screen and (min-width: 768px) {
       padding: size(100) size(150);
@@ -97,9 +96,9 @@
       }
 
       .logo-svg {
-        width: size-m(199); // 手機版寬度
+        width: size-m(199); 
         @media screen and (min-width: 768px) {
-          width: size(368); // 電腦版寬度
+          width: size(368); 
         }
       }
     }
@@ -168,7 +167,7 @@
 
           span {
             font-family: 'Noto Sans TC';
-            font-weight: 700; // 「生活」為粗體
+            font-weight: 700;
           }
         }
 
@@ -190,18 +189,6 @@
           }
         }
       }
-
-      // .divider-line {
-      //   // display: none; // 手機版標題通常垂直排列，可隱藏斜線或調整角度
-
-      //   @media screen and (min-width: 768px) {
-      //     display: block;
-      //     width: 1px;
-      //     height: size(700);
-      //     background-color: #002265;
-      //     transform: rotate(35deg);
-      //   }
-      // }
 
       .text-right {
         .target-text {
@@ -246,17 +233,59 @@
   .swiper-container {
     width: 100%;
 
-    :deep(.swiper-slide) { /* 手機版：設定寬度為 84% */
+    :deep(.swiper-slide) { 
       width: 84%;
+      position: relative;
       height: auto; 
       @media screen and (min-width: 768px) {
-        width: auto; /* 電腦版：重設寬度，讓 Swiper 自動計算 */
+        width: auto;
       }
       
       img {
         width: 100%;
         height: auto;
         display: block;
+      }
+
+      &::before {
+        content: attr(data-text);
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        font-family: 'Verdana', sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: size-m(16);
+        line-height: size-m(42);
+        letter-spacing: 0%;
+        text-align: center;
+        color: #fff;
+        padding: 0 size-m(15);
+        @media screen and (min-width: 768px) {
+          font-size: size(16);
+          line-height: size(42);
+          padding: 0 size(15);
+        }
+      }
+      &::after {
+        content: attr(data-name);
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        font-family: 'Verdana', sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: size-m(16);
+        line-height: size-m(42);
+        letter-spacing: 0%;
+        text-align: right;
+        color: #fff;
+        padding: 0 size-m(15);
+        @media screen and (min-width: 768px) {
+          font-size: size(16);
+          line-height: size(42);
+          padding: 0 size(15);
+        }
       }
     }
 
@@ -268,11 +297,16 @@
       }
 
       .swiper-pagination-bullet {
-        width: 6px;
-        height: 6px;
+        width: size-m(6);
+        height: size-m(6);
         background-color: #828683;
         opacity: 1;
-        margin: 0 5px;
+        margin: 0 size-m(5);
+        @media screen and (min-width: 768px) {
+          width: size(6);
+          height: size(6);
+          margin: 0 size(5);
+        }
       }
       .swiper-pagination-bullet-active {
         background-color: #162783;
@@ -293,7 +327,27 @@ import img3 from './s3/3.jpg';
 import img4 from './s3/4.jpg';
 import img5 from './s3/5.jpg';
 
-const images = [img1, img2, img3, img4, img5];
-
+const images = [
+  {
+    pic: img1,
+    name: 'Banyan Tree Residences Cabo Marques'
+  },
+  {
+    pic: img2,
+    name: 'Banyan Tree Residences Lăng Cô'
+  },
+  {
+    pic: img3,
+    name: 'Banyan Tree Residences Bintan '
+  },
+  {
+    pic: img4,
+    name: 'Banyan Tree Residences Manila Bay'
+  },
+  {
+    pic: img5,
+    name: 'Banyan Tree Padilla Madrid Residences'
+  },
+];
 const modules = [Pagination];
 </script>
