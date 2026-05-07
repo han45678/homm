@@ -3,34 +3,51 @@
     class="s7 relative font-['Noto_Sans_TC']"
     id="s7"
   >
+    <img
+      class="bg"
+      src="./s7/bg.png"
+      alt="bg"
+    />
     <div class="main">
       <Swiper
         :modules="modules"
         :effect="'fade'"
+        :fade-effect="{ crossFade: true }"
         :slides-per-view="1"
         :loop="true"
         @swiper="onSwiper"
         @slideChange="onSlideChange"
         :navigation="{
-          nextEl: '.s7-next',
-          prevEl: '.s7-prev',
+          nextEl: nextBtn,
+          prevEl: prevBtn
         }"
       >
-        <SwiperSlide v-for="(slide, index) in slidesData" :key="index">
-          <div class="item">
+        <SwiperSlide
+          v-for="(slide, index) in slidesData"
+          :key="index"
+        >
+          <div class="item" :data-title="slide.title">
             <div class="pic">
               <div
                 class="pic_item"
                 v-for="(p, pIdx) in slide.pics"
                 :key="pIdx"
               >
-                <img :src="p" alt="pic" />
+                <img
+                  :src="p"
+                  alt="pic"
+                />
               </div>
               <p>3D模擬情境圖</p>
             </div>
             <div class="pattern">
-              <img :src="slide.pattern" alt="pic" />
-              <h2>{{ slide.title }}<span>共<b>{{ slide.total }}</b>戶</span></h2>
+              <img
+                :src="slide.pattern"
+                alt="pic"
+              />
+              <h2>
+                {{ slide.title }}<span>共<b v-html="slide.total" />戶</span>
+              </h2>
               <p v-html="slide.descHtml"></p>
             </div>
           </div>
@@ -38,12 +55,26 @@
       </Swiper>
 
       <!-- 自訂導覽箭頭 -->
-      <div class="s7-nav s7-prev">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      <div
+        ref="prevBtn"
+        class="s7-nav s7-prev"
+        @click="swiperInstance?.slidePrev()"
+      >
+        <img
+          src="./s7/prev.svg"
+          alt="prev"
+        />
       </div>
 
-      <div class="s7-nav s7-next">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      <div
+        ref="nextBtn"
+        class="s7-nav s7-next"
+        @click="swiperInstance?.slideNext()"
+      >
+        <img
+          src="./s7/next.svg"
+          alt="next"
+        />
       </div>
 
       <!-- 自訂按鈕分頁 -->
@@ -68,16 +99,25 @@
 .s7 {
   // height: 100vh;
   z-index: 1;
-  background-color: rgba(208, 211, 211, 0.8);
+  background-color: rgb(202 202 202 / 80%);
 
   @media screen and (min-width: 768px) {
     padding: size(70) 0;
   }
-
+  .bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
   .main {
     width: calc(100% - size-m(30));
     margin: 0 size-m(15);
     position: relative;
+    z-index: 1;
+    // padding-top: size-m(100);
     @media screen and (min-width: 768px) {
       max-width: size(1734);
       margin: auto;
@@ -85,7 +125,7 @@
 
     /* 增加 Swiper 容器的內距，避免陰影被 overflow: hidden 裁切 */
     :deep(.swiper) {
-      padding: size-m(20);
+      padding: size-m(100) size-m(20) size-m(20) size-m(20);
       margin: size-m(-20);
       @media screen and (min-width: 768px) {
         padding: size(20);
@@ -94,6 +134,7 @@
     }
 
     .item {
+      height: 100%;
       position: relative;
       background: rgba(255, 255, 255, 1);
       box-shadow: 0 size-m(10) size-m(10) 0 rgba(0, 0, 0, 0.15);
@@ -103,12 +144,37 @@
       align-items: center;
       justify-content: space-between;
       border-radius: size-m(15);
-      padding: size-m(70) size-m(15);
+      padding: size-m(70) size-m(15) size-m(0) size-m(15);
 
       @media screen and (min-width: 768px) {
         box-shadow: 0 size(10) size(10) 0 rgba(0, 0, 0, 0.15);
         border-radius: size(36);
         padding: size(30) size(50);
+      }
+
+      &::after {
+        content: attr(data-title);
+        position: absolute;
+        top: size-m(-70);
+        left: 0;
+        right: 0;
+        margin: auto;
+
+        width: size-m(158);
+        height: size-m(40);
+        line-height: size-m(40);
+        border-radius: size-m(62);
+        background-color: #162783;
+        color: #fff;
+
+        font-weight: 700;
+        font-size: size-m(20);
+        letter-spacing: 0%;
+        text-align: center;
+
+        @media screen and (min-width: 768px) {
+          display: none;
+        }
       }
 
       &::before {
@@ -173,12 +239,12 @@
           color: #828683;
           font-size: size-m(10);
           font-weight: 400;
-          // line-height: size-m(20.19);
           letter-spacing: 0;
+          transform: translateY(-100%);
 
           @media screen and (min-width: 768px) {
             font-size: size(16);
-            // line-height: size(42);
+            transform: unset;
           }
         }
       }
@@ -221,8 +287,8 @@
 
             letter-spacing: 0%;
             text-align: center;
+            font-size: size-m(13.26);
 
-            font-size: size-m(18.57);
             margin-left: 1em;
             @media screen and (min-width: 768px) {
               font-size: size(30);
@@ -234,17 +300,19 @@
               text-align: center;
               font-family: Noto Sans TC;
 
-              font-size: size-m(13.26);
+              font-size: size-m(18.57);
               display: inline-block;
-              width: size-m(30);
-              height: size-m(30);
+              width: size-m(40);
+              height: size-m(40);
+              line-height: size-m(38);
               border-radius: 100%;
               border: size-m(1) solid #162783;
               margin: 0 0.05em;
               @media screen and (min-width: 768px) {
                 font-size: size(30);
-                width: size(50);
-                height: size(50);
+                width: size(65);
+                height: size(65);
+                line-height: size(63);
                 border: size(1) solid #162783;
               }
             }
@@ -258,9 +326,10 @@
           letter-spacing: 0%;
           text-align: center;
           color: #162783;
-
+          margin-bottom: size-m(30);
           @media screen and (min-width: 768px) {
             font-size: size(14);
+            margin-bottom: 0;
           }
 
           span {
@@ -282,28 +351,23 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      width: size-m(40);
-      height: size-m(40);
-      background: #d9dbdb;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       z-index: 10;
-      box-shadow: 0 0 size-m(10) rgba(0, 0, 0, 0.15);
       color: #162783;
       transition: opacity 0.3s;
-
-      @media screen and (min-width: 768px) {
-        width: size(60);
-        height: size(60);
-        box-shadow: 0 0 size(10) rgba(0, 0, 0, 0.15);
+      display: none;
+      &:hover {
+        opacity: 0.3;
       }
-
-      svg {
-        width: 50%;
-        height: 50%;
+      @media screen and (min-width: 768px) {
+        display: block;
+        width: size(31.7);
+        height: size(124);
+        box-shadow: 0 0 size(10) rgba(0, 0, 0, 0.15);
       }
 
       &.swiper-button-disabled {
@@ -312,27 +376,22 @@
       }
 
       &.s7-prev {
-        left: size-m(-15);
-        @media screen and (min-width: 768px) {
-          left: size(-75);
-        }
+        left: size(-60);
       }
       &.s7-next {
-        right: size-m(-15);
-        @media screen and (min-width: 768px) {
-          right: size(-75);
-        }
+        right: size(-60);
       }
     }
 
     /* 自訂按鈕分頁 */
     .custom-pagination {
-      display: flex;
+      display: none;
       justify-content: center;
       gap: size-m(10);
       margin-top: size-m(20);
       flex-wrap: wrap;
       @media screen and (min-width: 768px) {
+        display: flex;
         gap: size(20);
         margin-top: size(40);
       }
@@ -375,44 +434,62 @@ import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
 
+import img1_1 from './s7/1-1.jpg';
+import img1_2 from './s7/1-2.jpg';
+import img1_3 from './s7/1-3.jpg';
+import img1 from './s7/1.jpg';
+
 import img2_1 from './s7/2-1.jpg';
 import img2_2 from './s7/2-2.jpg';
 import img2_3 from './s7/2-3.jpg';
 import img2 from './s7/2.jpg';
 
+import img3_1 from './s7/3-1.jpg';
+import img3_2 from './s7/3-2.jpg';
+import img3_3 from './s7/3-3.jpg';
+import img3 from './s7/3.jpg';
+
+import img4_1 from './s7/4-1.jpg';
+import img4_2 from './s7/4-2.jpg';
+import img4_3 from './s7/4-3.jpg';
+import img4 from './s7/4.jpg';
+
 // 將四組資料明確定義為陣列，未來可直接修改內容
 const slidesData = ref([
   {
-    pics: [img2_1, img2_2, img2_3],
-    pattern: img2,
-    title: '標準戶 A',
-    total: '80',
-    descHtml: '約<span>45～50</span>坪 ｜ 主建物約<span>25～30</span>坪 ｜ 附屬建物約<span>5～6</span>坪',
-    btnText: '標準戶 A'
+    pics: [img1_1, img1_2, img1_3],
+    pattern: img1,
+    title: '市景戶',
+    total: '18',
+    descHtml: '約<span>22～31</span>坪 ｜ 主建物約<span>14～20</span>坪 ',
+    btnText: '市景戶'
   },
   {
     pics: [img2_1, img2_2, img2_3],
     pattern: img2,
-    title: '標準戶 B',
+    title: '標準戶',
     total: '80',
-    descHtml: '約<span>45～50</span>坪 ｜ 主建物約<span>25～30</span>坪 ｜ 附屬建物約<span>5～6</span>坪',
-    btnText: '標準戶 B'
+    descHtml:
+      '約<span>45～50</span>坪 ｜ 主建物約<span>25～30</span>坪 ｜ 附屬建物約<span>5～6</span>坪',
+    btnText: '標準戶'
   },
   {
-    pics: [img2_1, img2_2, img2_3],
-    pattern: img2,
-    title: '標準戶 C',
-    total: '80',
-    descHtml: '約<span>45～50</span>坪 ｜ 主建物約<span>25～30</span>坪 ｜ 附屬建物約<span>5～6</span>坪',
-    btnText: '標準戶 C'
+    pics: [img3_1, img3_2, img3_3],
+    pattern: img3,
+    title: '轉角戶',
+    total: '6<span>+</span>6',
+    descHtml:
+      '約<span>76～79</span>坪 ｜ 主建物約<span>41</span>坪 ｜ 附屬建物約<span>8 </span>坪',
+    btnText: '轉角戶'
   },
   {
-    pics: [img2_1, img2_2, img2_3],
-    pattern: img2,
-    title: '標準戶 D',
-    total: '80',
-    descHtml: '約<span>45～50</span>坪 ｜ 主建物約<span>25～30</span>坪 ｜ 附屬建物約<span>5～6</span>坪',
-    btnText: '標準戶 D'
+    pics: [img4_1, img4_2, img4_3],
+    pattern: img4,
+    title: '三面採光戶',
+    total: '7',
+    descHtml:
+      '約<span>61～68</span>坪 ｜ 主建物約<span>35～37</span>坪 ｜ 附屬建物約<span>6～7</span>坪',
+    btnText: '三面採光戶'
   }
 ]);
 
@@ -421,6 +498,8 @@ const modules = [EffectFade, Navigation];
 
 const swiperInstance = ref(null);
 const activeIndex = ref(0);
+const prevBtn = ref(null);
+const nextBtn = ref(null);
 
 const onSwiper = (swiper) => {
   swiperInstance.value = swiper;
