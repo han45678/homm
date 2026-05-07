@@ -55,9 +55,11 @@
 
 .s5 {
   padding: size(50) 0;
-  background-color: #fff;
+  background-image: url(./s5/bg.png);
+  background-size: cover;
+  background-position: center center;
   @media screen and (min-width: 768px) {
-    padding: size(100) size(100);
+    padding: size(100) size(100) size(0) size(100);
   }
   .main {
     width: 100%;
@@ -74,7 +76,7 @@
       position: static;
       margin: size-m(20) 0;
       @media screen and (min-width: 768px) {
-        margin: size(50) 0;
+        margin:  size(75) 0 size(100) 0;
       }
       .swiper-pagination-bullet {
         width: size-m(6);
