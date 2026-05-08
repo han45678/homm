@@ -8,6 +8,9 @@
       src="./s7/bg.png"
       alt="bg"
     />
+    <div class="title">
+      <h2>精選<b>戶別</b></h2>
+    </div>
     <div class="main">
       <Swiper
         :modules="modules"
@@ -26,7 +29,10 @@
           v-for="(slide, index) in slidesData"
           :key="index"
         >
-          <div class="item" :data-title="slide.title">
+          <div
+            class="item"
+            :data-title="slide.title"
+          >
             <div class="pic">
               <div
                 class="pic_item"
@@ -97,9 +103,9 @@
 @import '@/assets/style/function.scss';
 
 .s7 {
-  // height: 100vh;
   z-index: 1;
   background-color: rgb(202 202 202 / 80%);
+  overflow: hidden;
 
   @media screen and (min-width: 768px) {
     padding: size(70) 0;
@@ -111,6 +117,51 @@
     position: absolute;
     inset: 0;
     z-index: -1;
+  }
+  .title {
+    margin-top: size-m(60);
+    margin-bottom: size-m(0);
+    @media screen and (min-width: 768px) {
+      margin-top:0;
+      margin-bottom: size(80);
+    }
+    h2 {
+      color: #162783;
+      font-weight: 300;
+      font-size: size-m(25);
+      line-height: size-m(55);
+      letter-spacing: 0%;
+      text-align: center;
+      position: relative;
+      &::before {
+        content: '';
+        position: absolute;
+        background-color: #162783;
+        height: size-m(194);
+        width: size-m(1);
+        bottom:0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        transform: rotate(-135deg) translateX(size-m(-50)) translateY(size-m(15));
+        opacity: 1;
+
+        @media screen and (min-width: 768px) {
+          height: size(194);
+          width: size(1);
+          transform: rotate(-135deg) translateX(size(-50));
+        }
+      }
+      b {
+        font-weight: 700;
+        display: inline-block;
+        margin-left: 2em;
+      }
+      @media screen and (min-width: 768px) {
+        font-size: size(42);
+        line-height: size(55);
+      }
+    }
   }
   .main {
     width: calc(100% - size-m(30));
