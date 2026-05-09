@@ -1,6 +1,6 @@
 <template>
   <article
-    class="s1 relative bg-[#162783]"
+    class="s1 relative bg-[#162783 font-['Noto_Sans_TC']"
     id="s1"
   >
     <img

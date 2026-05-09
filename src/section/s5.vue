@@ -3,7 +3,8 @@
     class="s5 relative font-['Noto_Sans_TC']"
     id="s5"
   >
-    <div class="main">
+    <div class="main" data-aos="zoom-out"
+      data-aos-delay="0">
       <Swiper
         :slides-per-view="'auto'"
         :centered-slides="true"
@@ -34,7 +35,7 @@
               :src="slide.img"
               :alt="`slide-${index + 1}`"
             />
-            <div class="text font-['Noto_Sans_TC']">
+            <div class="text">
               <div class="title">
                 <h2><span v-html="slide.titleHtml"></span></h2>
                 <h3>

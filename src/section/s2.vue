@@ -1,6 +1,6 @@
 <template>
   <article
-    class="s2 relative"
+    class="s2 relative font-['Noto_Sans_TC']"
     id="s2"
   >
     <img
@@ -14,15 +14,19 @@
       class="bg"
     />
 
-    <div class="text font-['Noto_Sans_TC']">
-      <h2>
+    <div class="text">
+      <h2 data-aos="zoom-out"
+      data-aos-delay="0">
         一戶一海景
         <b>全齡養身居所</b>
       </h2>
-      <h3>
+      <h3 data-aos="zoom-out"
+      data-aos-delay="200">
         <span>46-75坪</span>
       </h3>
       <img
+      data-aos="zoom-out"
+      data-aos-delay="300"
         src="./s2/logo.png"
         alt="logo"
         class="logo"

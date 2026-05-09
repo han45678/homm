@@ -2,6 +2,8 @@
   <article
     class="s6 relative font-['Noto_Sans_TC']"
     id="s6"
+    data-aos="zoom-out"
+      data-aos-delay="0"
   >
     <img
       class="b b1"
@@ -100,8 +102,9 @@
   .b {
     position: absolute;
     z-index: 1;
-    animation: float 4s ease-in-out infinite;
+
     &.b1 {
+      animation: float 4s ease-in-out infinite;
       width: size-m(112);
       height: size-m(75);
       top: size-m(139);
@@ -117,6 +120,7 @@
       }
     }
     &.b2 {
+      animation: float 5s ease-in-out infinite;
       animation-duration: 5s;
       animation-delay: -2s;
       width: size-m(100);

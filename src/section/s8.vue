@@ -3,7 +3,8 @@
     class="s8 relative font-['Noto_Sans_TC']"
     id="s8"
   >
-    <div class="title">
+    <div class="title" data-aos="zoom-out"
+      data-aos-delay="0">
       <h2>
         <b>
           <img
@@ -18,7 +19,8 @@
       <p>入主 HOMM Residences 鴻居苑，<br />可使用HOMM鴻居酒店飯店設施。</p>
     </div>
 
-    <div class="main">
+    <div class="main" data-aos="zoom-out"
+      data-aos-delay="200">
       <div
         class="item"
         v-for="(item, i) in info"

@@ -7,6 +7,8 @@
       <!-- 左上角 Logo -->
       <div class="logo-wrapper">
         <img
+          data-aos="zoom-out"
+          data-aos-delay="0"
           src="./s3/logo.svg"
           alt="Part of banyan group"
           class="logo-svg"
@@ -15,7 +17,11 @@
 
       <div class="content-container">
         <!-- 主標題區 (帶斜線) -->
-        <div class="hero-title">
+        <div
+          class="hero-title"
+          data-aos="zoom-out"
+          data-aos-delay="200"
+        >
           <div class="text-left">
             <h2 class="main-text">兼得</h2>
             <h3 class="sub-text">雙重<br />生活</h3>
@@ -26,7 +32,11 @@
         </div>
 
         <!-- 下方描述文字 -->
-        <div class="description">
+        <div
+          class="description"
+          data-aos="zoom-out"
+          data-aos-delay="300"
+        >
           <p>
             悅榕集團的酒店式房產，不僅享有完善而高規格的公共設施，更全面承襲悅榕集團飯店一貫的服務標準，提供全天候24小時的禮賓服務，細緻照應生活每一刻。
           </p>
@@ -36,7 +46,11 @@
         </div>
       </div>
     </section>
-    <div class="swiper-container">
+    <div
+      class="swiper-container"
+      data-aos="zoom-out"
+      data-aos-delay="400"
+    >
       <Swiper
         :slides-per-view="'auto'"
         :centered-slides="true"
@@ -54,8 +68,16 @@
           }
         }"
       >
-        <SwiperSlide v-for="(img, index) in images" :key="index" data-text="實景拍攝" :data-name="img.name">
-          <img :src="img.pic" :alt="img.name" />
+        <SwiperSlide
+          v-for="(img, index) in images"
+          :key="index"
+          data-text="實景拍攝"
+          :data-name="img.name"
+        >
+          <img
+            :src="img.pic"
+            :alt="img.name"
+          />
         </SwiperSlide>
       </Swiper>
     </div>
@@ -66,12 +88,12 @@
 @import '@/assets/style/function.scss';
 
 .s3 {
-  background-color: #F0EEE9;
+  background-color: #f0eee9;
 
   .banyan-section {
     position: relative;
     width: 100%;
-    
+
     padding: size-m(60) size-m(20);
     display: flex;
     flex-direction: column;
@@ -96,9 +118,9 @@
       }
 
       .logo-svg {
-        width: size-m(199); 
+        width: size-m(199);
         @media screen and (min-width: 768px) {
-          width: size(368); 
+          width: size(368);
         }
       }
     }
@@ -233,14 +255,14 @@
   .swiper-container {
     width: 100%;
 
-    :deep(.swiper-slide) { 
+    :deep(.swiper-slide) {
       width: 84%;
       position: relative;
-      height: auto; 
+      height: auto;
       @media screen and (min-width: 768px) {
         width: auto;
       }
-      
+
       img {
         width: 100%;
         height: auto;
@@ -289,9 +311,9 @@
 
     :deep(.swiper-pagination) {
       position: static;
-      margin:size-m(20) 0;
+      margin: size-m(20) 0;
       @media screen and (min-width: 768px) {
-        margin:size(40) 0;
+        margin: size(40) 0;
       }
 
       .swiper-pagination-bullet {
@@ -345,7 +367,7 @@ const images = [
   {
     pic: img5,
     name: 'Banyan Tree Padilla Madrid Residences'
-  },
+  }
 ];
 const modules = [Pagination];
 </script>

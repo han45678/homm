@@ -8,10 +8,12 @@
       src="./s7/bg.png"
       alt="bg"
     />
-    <div class="title">
+    <div class="title" data-aos="zoom-out"
+      data-aos-delay="0">
       <h2>精選<b>戶別</b></h2>
     </div>
-    <div class="main">
+    <div class="main" data-aos="zoom-out"
+      data-aos-delay="200">
       <Swiper
         :modules="modules"
         :effect="'fade'"

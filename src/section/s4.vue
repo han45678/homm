@@ -5,14 +5,18 @@
   >
     <div class="top">
       <img
+      data-aos="zoom-out"
+      data-aos-delay="0"
         src="./s4/logo.svg"
         alt="logo"
       />
-      <p>
+      <p data-aos="zoom-out"
+      data-aos-delay="200">
         座落於<b>亞果遊艇城核心腹地，與亞果遊艇旗艦遊艇城無縫串聯</b>，居住日常自然延伸至海上。從專屬遊艇泊位、國際規格碼頭設施，到完整的海洋休閒與水上活動規劃，度假不再只是短暫停留，而是被完整納入日常生活的節奏之中。
       </p>
     </div>
-    <div class="mid">
+    <div class="mid" data-aos="zoom-out"
+      data-aos-delay="300">
       <img
         class="main"
         src="./s4/pic.jpg"
@@ -29,13 +33,40 @@
       在這裡，渡假之外，更擁有一座<b>全方位水上遊城</b><br />
       所帶來的層層體驗——航行、休憩、社交、款待與私密並存，形塑少數人才能進入的海洋生活圈。
     </div>
+
+    <img
+      class="b b1"
+      src="./s4/b1.png"
+      alt="b1"
+    />
+    <img
+      class="b b2"
+      src="./s4/b2.png"
+      alt="b2"
+    />
+    <img
+      class="b b3"
+      src="./s4/b3.png"
+      alt="b3"
+    />
   </article>
 </template>
 
 <style lang="scss" scoped>
 @import '@/assets/style/function.scss';
 
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20%);
+  }
+}
+
 .s4 {
+  position: relative;
   padding: size-m(60) 0;
   @media screen and (min-width: 768px) {
     padding: size(100) 0;
@@ -85,6 +116,7 @@
   .mid {
     width: 100%;
     position: relative;
+    z-index: 1;
     @media screen and (min-width: 768px) {
       max-width: size(1480);
       margin: 0 auto;
@@ -144,6 +176,43 @@
     b {
       font-weight: 700;
       color: #162783;
+    }
+  }
+  .b {
+    position: absolute;
+    &.b1 {
+      animation: float 3s ease-in-out infinite;
+      left: size-m(-10);
+      top: size-m(465);
+      width: size-m(150);
+      @media screen and (min-width: 768px) {
+        left: size(70);
+        top: size(750);
+        width: size(180);
+      }
+    }
+    &.b2 {
+      animation: float 4s ease-in-out infinite;
+      right: size-m(-10);
+      top: size-m(260);
+      width: size-m(160);
+      @media screen and (min-width: 768px) {
+        right: size(70);
+        top: size(500);
+        width: size(180);
+      }
+    }
+    &.b3 {
+      animation: float 5s ease-in-out infinite;
+      right: size-m(0);
+      top: size-m(445);
+      width: size-m(140);
+      z-index: 2;
+      @media screen and (min-width: 768px) {
+        right: size(70);
+        top: size(750);
+        width: size(250);
+      }
     }
   }
 }
