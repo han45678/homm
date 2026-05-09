@@ -198,11 +198,13 @@
       justify-content: space-between;
       border-radius: size-m(15);
       padding: size-m(70) size-m(15) size-m(0) size-m(15);
+      margin-bottom: size-m(60);
 
       @media screen and (min-width: 768px) {
         box-shadow: 0 size(10) size(10) 0 rgba(0, 0, 0, 0.15);
         border-radius: size(36);
         padding: size(30) size(50);
+        margin-bottom: 0;
       }
 
       &::after {

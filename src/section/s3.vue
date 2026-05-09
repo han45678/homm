@@ -215,7 +215,7 @@
       .text-right {
         .target-text {
           font-weight: 300;
-          font-size: size-m(29.45);
+          font-size: size-m(28);
           line-height: size-m(38.56);
           letter-spacing: 0;
           text-align: center;
@@ -275,7 +275,7 @@
         left: 0;
         bottom: 0;
         font-weight: 400;
-        font-size: size-m(16);
+        font-size: size-m(14);
         line-height: size-m(42);
         letter-spacing: 0%;
         text-align: center;
@@ -295,7 +295,7 @@
         font-family: 'Verdana', sans-serif;
         font-weight: 400;
         font-style: normal;
-        font-size: size-m(16);
+        font-size: size-m(12);
         line-height: size-m(42);
         letter-spacing: 0%;
         text-align: right;
