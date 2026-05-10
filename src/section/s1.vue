@@ -34,15 +34,16 @@
 
 .s1 {
   height: size-m(604);
-  min-height: size-m(604);
-  max-height: size-m(604);
+  height: calc(100dvh - size-m(85));
+  // min-height: size-m(604);
+  // max-height: size-m(604);
   background-size: cover;
   object-position: top center;
 
   @media screen and (min-width: 768px) {
-    height: 100vh;
-    min-height: size(959);
-    max-height: size(959);
+    height: 100dvh;
+    // min-height: size(959);
+    // max-height: size(959);
     padding: 0;
     font-size: size(28);
   }

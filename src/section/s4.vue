@@ -155,7 +155,7 @@
     }
   }
   .bottom {
-    width: 100%;
+    width: size-m(310);
     padding-top: size-m(30);
     font-weight: 300;
     font-size: size-m(14);
@@ -165,6 +165,7 @@
     margin: auto;
 
     @media screen and (min-width: 768px) {
+      width: 100%;
       max-width: size(1480);
       padding-top: size(50);
       font-weight: 300;

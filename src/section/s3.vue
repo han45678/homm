@@ -89,7 +89,10 @@
 
 .s3 {
   background-color: #f0eee9;
-
+  padding-bottom: size-m(60);
+  @media screen and (min-width: 768px) {
+    padding-bottom: 0;
+  }
   .banyan-section {
     position: relative;
     width: 100%;
@@ -204,7 +207,7 @@
           bottom: size-m(-95);
           @media screen and (min-width: 768px) {
             transform: rotate(40deg);
-            width: size(3);
+            width: size(1);
             height: size(600);
             right: size(-185);
             bottom: size(-85);
@@ -312,7 +315,9 @@
     :deep(.swiper-pagination) {
       position: static;
       margin: size-m(20) 0;
+      display: none;
       @media screen and (min-width: 768px) {
+        display: block;
         margin: size(40) 0;
       }
 

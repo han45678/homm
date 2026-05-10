@@ -8,12 +8,18 @@
       src="./s7/bg.png"
       alt="bg"
     />
-    <div class="title" data-aos="zoom-out"
-      data-aos-delay="0">
+    <div
+      class="title"
+      data-aos="zoom-out"
+      data-aos-delay="0"
+    >
       <h2>精選<b>戶別</b></h2>
     </div>
-    <div class="main" data-aos="zoom-out"
-      data-aos-delay="200">
+    <div
+      class="main"
+      data-aos="zoom-out"
+      data-aos-delay="200"
+    >
       <Swiper
         :modules="modules"
         :effect="'fade'"
@@ -74,6 +80,8 @@
         />
       </div>
 
+      
+
       <div
         ref="nextBtn"
         class="s7-nav s7-next"
@@ -98,6 +106,8 @@
         </div>
       </div>
     </div>
+
+    <p class="txt">平面圖僅供參考，實際建材及設備以契約書為準。</p>
   </article>
 </template>
 
@@ -124,7 +134,7 @@
     margin-top: size-m(60);
     margin-bottom: size-m(0);
     @media screen and (min-width: 768px) {
-      margin-top:0;
+      margin-top: 0;
       margin-bottom: size(80);
     }
     h2 {
@@ -141,11 +151,12 @@
         background-color: #162783;
         height: size-m(194);
         width: size-m(1);
-        bottom:0;
+        bottom: 0;
         left: 0;
         right: 0;
         margin: auto;
-        transform: rotate(-135deg) translateX(size-m(-50)) translateY(size-m(15));
+        transform: rotate(-135deg) translateX(size-m(-50))
+          translateY(size-m(15));
         opacity: 1;
 
         @media screen and (min-width: 768px) {
@@ -477,7 +488,26 @@
         }
       }
     }
+
   }
+
+  .txt {
+      text-align: center;
+      font-weight: 400;
+      font-size: size-m(11);
+      color: #828683;
+      margin-top: size-m(15);;
+      @media screen and (max-width: 767px) {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: size-m(65);
+      }
+      @media screen and (min-width: 768px) { 
+        font-size: size(14);
+        margin-top: size(30);;
+      }
+    }
 }
 </style>
 

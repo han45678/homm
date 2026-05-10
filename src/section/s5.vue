@@ -55,12 +55,12 @@
 @import '@/assets/style/function.scss';
 
 .s5 {
-  padding: size(50) 0;
+  padding: size-m(60) 0 size-m(10) 0;
   background-image: url(./s5/bg.png);
   background-size: cover;
   background-position: center center;
   @media screen and (min-width: 768px) {
-    padding: size(100) size(100) size(0) size(100);
+    padding: size(150) size(100) size(0) size(100);
   }
   .main {
     width: 100%;

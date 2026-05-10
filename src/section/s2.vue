@@ -15,23 +15,29 @@
     />
 
     <div class="text">
-      <h2 data-aos="zoom-out"
-      data-aos-delay="0">
+      <h2
+        data-aos="zoom-out"
+        data-aos-delay="0"
+      >
         一戶一海景
         <b>全齡養身居所</b>
       </h2>
-      <h3 data-aos="zoom-out"
-      data-aos-delay="200">
+      <h3
+        data-aos="zoom-out"
+        data-aos-delay="200"
+      >
         <span>46-75坪</span>
       </h3>
       <img
-      data-aos="zoom-out"
-      data-aos-delay="300"
+        data-aos="zoom-out"
+        data-aos-delay="300"
         src="./s2/logo.png"
         alt="logo"
         class="logo"
       />
     </div>
+
+    <p class="txt">3D外觀透視示意圖</p>
   </article>
 </template>
 
@@ -142,6 +148,24 @@
       @media screen and (min-width: 768px) {
         width: size(127);
       }
+    }
+  }
+
+  .txt {
+    font-weight: 400;
+    letter-spacing: 0%;
+    font-size: size-m(11);
+    line-height: 150%;
+    position: absolute;
+    left: size-m(15);
+    bottom: size-m(15);
+    color: #fff;
+    z-index: 1;
+    @media screen and (min-width: 768px) {
+      font-size: size(16);
+      line-height: size(42);
+      left: size(15);
+      bottom: size(15);
     }
   }
 }
