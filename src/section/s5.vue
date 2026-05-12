@@ -38,7 +38,7 @@
 
 .s5 {
   padding: size-m(60) 0 size-m(10) 0;
-  background-image: url(./s5/bg.png);
+  background-image: url(./s5/bg.webp);
   background-size: cover;
   background-position: center center;
 
