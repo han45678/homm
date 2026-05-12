@@ -156,15 +156,15 @@
         flex-direction: row;
         gap: size(40);
         margin-bottom: size(50);
-        align-items: end;
+        align-items: flex-end;
         justify-content: center;
-          font-size: size(42);
+        font-size: size(42);
       }
 
       .text-left {
         text-align: center;
         display: flex;
-        align-items: end;
+        align-items: flex-end;
         gap: 0;width: 4.5em;
       justify-content:space-between;
         position: relative;

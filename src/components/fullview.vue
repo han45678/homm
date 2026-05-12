@@ -15,7 +15,7 @@
       v-if="$isMobile()"
     >
       <img
-        src="@/components/fullview/finger.png"
+        src="@/components/fullview/finger.svg"
         alt=""
         srcset=""
       />
@@ -86,7 +86,7 @@ import { onMounted, ref, computed, getCurrentInstance } from 'vue';
 const viewbox = ref();
 const viewImg = ref();
 const swiped = ref(false);
-const offsetRatio = 2.57;
+const offsetRatio = 1.74;
 
 const globals = getCurrentInstance().appContext.config.globalProperties;
 const isMobile = computed(() => globals.$isMobile());
