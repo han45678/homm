@@ -5,7 +5,7 @@
   >
     <img
       ref="viewImg"
-      src="@/section/s6/map.png"
+      src="@/section/s6/map.svg"
       alt=""
       srcset=""
     />
@@ -39,7 +39,7 @@
       object-fit: cover;
     }
     max-width: unset;
-    //    background:url("@/section/s3/view.jpg") 50%;
+      background:url("@/section/s6/map.webp") 50%;
     //    background-size: 100% auto;
   }
 }

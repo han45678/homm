@@ -4,12 +4,12 @@
     id="s1"
   >
     <img
-      src="./s1/bg.jpg"
+      src="./s1/bg.webp"
       class="bg"
       v-if="!isMobile"
     />
     <img
-      src="./s1/bgm.jpg"
+      src="./s1/bgm.webp"
       class="bg"
       v-else
     />

@@ -42,7 +42,7 @@
       <Swiper
         :slides-per-view="'auto'"
         :centered-slides="true"
-        :space-between="5"
+        :space-between="0"
         :loop="true"
       >
         <SwiperSlide v-for="(item, i) in info" :key="i">
@@ -87,7 +87,7 @@
     z-index: 1;
     color: #fff;
     padding-top: size-m(60);
-      padding-bottom: size-m(50);
+      padding-bottom: size-m(20);
     @media screen and (min-width: 768px) {
       padding-top: size(70);
       padding-bottom: size(70);
@@ -106,7 +106,7 @@
         margin-right: size-m(60);
         padding-bottom: 0.5em;
         @media screen and (min-width: 768px) {
-          margin-right: size(50);
+          margin-right: size(70);
         }
         img {
           width: size-m(185);
@@ -118,7 +118,6 @@
           content: '';
           position: absolute;
           transform: rotate(45deg);
-
           width: size-m(209);
             height: size-m(209);
             border-top: size-m(1) solid #fff;
@@ -177,16 +176,16 @@
     display: none;
     @media screen and (min-width: 768px) {
       display: flex;
-      max-width: size(1480);
+      max-width: size(1447);
+        .item {
+          flex: 1;
+        }
 
       /* 滑鼠移至 main 區塊時，設定全部項目的縮小倍率 */
       &:hover {
-        .item {
-          width: calc(25% / 1.79);
-        }
         /* 被滑過(Hover)的項目設定放大倍率 */
         .item:hover {
-          width: calc(25% * 2.35);
+          flex: 4.2;
         }
       }
     }
@@ -194,7 +193,7 @@
       cursor: pointer;
       padding-top: size-m(30);
       border-left: size-m(1) solid #fff;
-      transition: width 0.5s ease;
+      transition: width 0.5s ease ,flex 0.5s ease;
       overflow: hidden;
 
       @media screen and (min-width: 768px) {
@@ -254,9 +253,9 @@
     }
 
     .item {
-      padding-top: size-m(30);
+      padding-top: size-m(20);
       border-left: size-m(1) solid #fff;
-      border-right: size-m(1) solid #fff;
+      // border-right: size-m(1) solid #fff;
       height: 100%;
       display: flex;
       flex-direction: column;
@@ -271,10 +270,9 @@
         }
       }
       h3 {
-        padding-top: size-m(15);
-        padding-bottom: size-m(15);
+        padding: size-m(9) 0;
         text-align: center;
-        font-weight: 700;
+        font-weight: 500;
         letter-spacing: 0%;
         font-size: size-m(14);
         color: #fff;
@@ -288,10 +286,11 @@
     z-index: 1;
     color: #fff;
     z-index: 1;
-    font-weight: 400;
+    font-weight: 300;
     font-size: size-m(11);
     text-align: center;
-    padding: size-m(15) 0 size-m(60) 0;
+    padding: size-m(10) 0 size-m(80) 0;
+    text-shadow: 0 0 .3em #000;
     @media screen and (min-width: 768px) {
       position: absolute;
       font-size: size(16);
@@ -306,10 +305,10 @@
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
 
-import pic1 from './s8/pic1.png';
-import pic2 from './s8/pic2.jpg';
-import pic3 from './s8/pic3.png';
-import pic4 from './s8/pic4.png';
+import pic1 from './s8/pic1.webp';
+import pic2 from './s8/pic2.webp';
+import pic3 from './s8/pic3.webp';
+import pic4 from './s8/pic4.webp';
 
 const info = [
   {

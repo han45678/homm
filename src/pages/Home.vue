@@ -45,6 +45,11 @@
     transform: translateX(0%);
   }
 }
+html,
+body,
+* {
+  -webkit-text-size-adjust: 100%;
+}
 
 .fade-enter-active,
 .fade-leave-active {

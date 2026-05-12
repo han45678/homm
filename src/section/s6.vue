@@ -2,8 +2,6 @@
   <article
     class="s6 relative font-['Noto_Sans_TC']"
     id="s6"
-    data-aos="zoom-out"
-      data-aos-delay="0"
   >
     <img
       class="b b1"

@@ -4,16 +4,11 @@
     id="s2"
   >
     <img
-      src="./s2/home.png"
+      src="./s2/home.webp"
       alt="home"
       class="home"
     />
-    <img
-      src="./s2/bg.jpg"
-      alt="s2"
-      class="bg"
-    />
-
+    <div class="bg"></div>
     <div class="text">
       <h2
         data-aos="zoom-out"
@@ -45,6 +40,10 @@
 @import '@/assets/style/function.scss';
 
 @keyframes moveLeftRight {
+  to{
+     transform: translateX(0%);
+  }
+  /*
   0%,
   100% {
     transform: scale(1.05) translateX(2%);
@@ -52,6 +51,13 @@
   50% {
     transform: scale(1.05) translateX(-2%);
   }
+    <img
+      src="./s2/bg.webp"
+      alt="s2"
+      class="bg"
+    />
+
+    */
 }
 
 .s2 {
@@ -74,11 +80,16 @@
       height: size(645);
     }
   }
+
   .bg {
-    width: size-m(1000);
-    animation: moveLeftRight 30s ease-in-out infinite;
+      height: 100%;
+   transform: translateX(-50%);
+    background: url('./s2/bg.webp') ;
+    animation: moveLeftRight 30s linear infinite reverse;
+    aspect-ratio: 4480/900; //背景圖2240 的兩倍寬 才回循環
     @media screen and (min-width: 768px) {
-      width: size(1920);
+    animation-duration: 50s;
+
     }
   }
 

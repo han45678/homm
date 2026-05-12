@@ -140,12 +140,17 @@
 
     .hero-title {
       display: flex;
-      gap: size-m(55);
+      // gap: size-m(55);
       margin-bottom: size-m(30);
       position: relative;
       color: #002265;
-      justify-content: center;
+      justify-content:space-between;
+      flex-wrap: wrap;
       align-items: self-end;
+      font-size: size-m(29);
+      font-size: clamp(12px, size-m(29), 45px);
+      line-height: 1.31;
+      white-space: nowrap;
 
       @media screen and (min-width: 768px) {
         flex-direction: row;
@@ -153,13 +158,15 @@
         margin-bottom: size(50);
         align-items: end;
         justify-content: center;
+          font-size: size(42);
       }
 
       .text-left {
         text-align: center;
         display: flex;
         align-items: end;
-        gap: size-m(15);
+        gap: 0;width: 4.5em;
+      justify-content:space-between;
         position: relative;
         @media screen and (min-width: 768px) {
           gap: size(15);
@@ -167,26 +174,18 @@
         .main-text {
           font-family: 'Noto Sans TC';
           font-weight: 300;
-          font-size: size-m(29.45);
-          line-height: size-m(38.56);
           letter-spacing: 0;
 
           @media screen and (min-width: 768px) {
-            font-size: size(42);
-            line-height: size(55);
           }
         }
 
         .sub-text {
           font-weight: 700;
-          font-size: size-m(29.45);
-          line-height: size-m(38.56);
           letter-spacing: 0;
           text-align: center;
 
           @media screen and (min-width: 768px) {
-            font-size: size(42);
-            line-height: size(55);
             text-align: left;
           }
 
@@ -201,16 +200,14 @@
           position: absolute;
           background-color: #162783;
           transform: rotate(45deg);
+          transform-origin: 100% 100%;
           width: size-m(1);
-          height: size-m(600);
-          right: size-m(-220);
-          bottom: size-m(-95);
+          height: 20.7em;
+          right: 0;
+          bottom:  0;
           @media screen and (min-width: 768px) {
             transform: rotate(40deg);
             width: size(1);
-            height: size(600);
-            right: size(-185);
-            bottom: size(-85);
           }
         }
       }
@@ -218,14 +215,11 @@
       .text-right {
         .target-text {
           font-weight: 300;
-          font-size: size-m(28);
-          line-height: size-m(38.56);
           letter-spacing: 0;
           text-align: center;
+         // font-size: 0.95em;
 
           @media screen and (min-width: 768px) {
-            font-size: size(42);
-            line-height: size(55);
             text-align: left;
           }
         }
@@ -242,7 +236,7 @@
         font-weight: 300;
         font-size: size-m(14);
         line-height: 170%;
-        letter-spacing: 0;
+        letter-spacing:-.01em;
         color: #333;
         text-align: justify;
 
@@ -250,6 +244,7 @@
           font-size: size(14);
           line-height: size(24);
           text-align: left;
+        letter-spacing: 0;
         }
       }
     }
@@ -277,17 +272,15 @@
         position: absolute;
         left: 0;
         bottom: 0;
-        font-weight: 400;
+        font-weight: 300;
         font-size: size-m(14);
-        line-height: size-m(42);
+        line-height: 1.5;
         letter-spacing: 0%;
         text-align: center;
         color: #fff;
-        padding: 0 size-m(15);
+        padding: 0.4em 1em;
         @media screen and (min-width: 768px) {
           font-size: size(16);
-          line-height: size(42);
-          padding: 0 size(15);
         }
       }
       &::after {
@@ -296,18 +289,16 @@
         right: 0;
         bottom: 0;
         font-family: 'Verdana', sans-serif;
-        font-weight: 400;
+        font-weight: 300;
         font-style: normal;
-        font-size: size-m(12);
-        line-height: size-m(42);
+        font-size: size-m(11);
+        line-height: 1.5;
         letter-spacing: 0%;
         text-align: right;
         color: #fff;
-        padding: 0 size-m(15);
+        padding: 0.6em 1em;
         @media screen and (min-width: 768px) {
           font-size: size(16);
-          line-height: size(42);
-          padding: 0 size(15);
         }
       }
     }
@@ -346,11 +337,11 @@ import { Pagination } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-import img1 from './s3/1.jpg';
-import img2 from './s3/2.jpg';
-import img3 from './s3/3.jpg';
-import img4 from './s3/4.jpg';
-import img5 from './s3/5.jpg';
+import img1 from './s3/1.webp';
+import img2 from './s3/2.webp';
+import img3 from './s3/3.webp';
+import img4 from './s3/4.webp';
+import img5 from './s3/5.webp';
 
 const images = [
   {

@@ -20,19 +20,22 @@
       data-aos="zoom-out"
       data-aos-delay="200"
     >
-      <Swiper
-        :modules="modules"
-        :effect="'fade'"
-        :fade-effect="{ crossFade: true }"
-        :slides-per-view="1"
-        :loop="true"
-        @swiper="onSwiper"
-        @slideChange="onSlideChange"
-        :navigation="{
-          nextEl: nextBtn,
-          prevEl: prevBtn
-        }"
-      >
+    <Swiper
+  :key="isMobile ? 'mobile' : 'desktop'"
+  :modules="modules"
+  :effect="isMobile ? undefined : 'fade'"
+  :fade-effect="isMobile ? undefined : { crossFade: true }"
+  :slides-per-view=" 1"
+  :centered-slides="isMobile ? true : false"
+  :space-between="isMobile ? 15 : 0"
+  :loop="isMobile ? false : true"
+  @swiper="onSwiper"
+  @slideChange="onSlideChange"
+  :navigation="{
+    nextEl: nextBtn,
+    prevEl: prevBtn
+  }"
+>
         <SwiperSlide
           v-for="(slide, index) in slidesData"
           :key="index"
@@ -116,7 +119,7 @@
 
 .s7 {
   z-index: 1;
-  background-color: rgb(202 202 202 / 80%);
+  background-color:#D8DBDB;
   overflow: hidden;
 
   @media screen and (min-width: 768px) {
@@ -168,7 +171,7 @@
       b {
         font-weight: 700;
         display: inline-block;
-        margin-left: 2em;
+        margin-left: 1.5em;
       }
       @media screen and (min-width: 768px) {
         font-size: size(42);
@@ -196,6 +199,16 @@
         margin: size(-20);
       }
     }
+    :deep(.swiper-slide-prev) {
+      .item::after{
+        transform: translate(75%);
+      }
+    }
+    :deep(.swiper-slide-next) {
+      .item::after{
+        transform: translate(-75%);
+      }
+    }
 
     .item {
       height: 100%;
@@ -208,8 +221,8 @@
       align-items: center;
       justify-content: space-between;
       border-radius: size-m(15);
-      padding: size-m(70) size-m(15) size-m(0) size-m(15);
-      margin-bottom: size-m(60);
+      padding: size-m(50) size-m(15) size-m(0) size-m(15);
+      margin-bottom: size-m(12);
 
       @media screen and (min-width: 768px) {
         box-shadow: 0 size(10) size(10) 0 rgba(0, 0, 0, 0.15);
@@ -225,18 +238,18 @@
         left: 0;
         right: 0;
         margin: auto;
-
         width: size-m(158);
         height: size-m(40);
         line-height: size-m(40);
         border-radius: size-m(62);
         background-color: #162783;
         color: #fff;
-
         font-weight: 700;
         font-size: size-m(20);
         letter-spacing: 0%;
         text-align: center;
+        transform: translate(0);
+        transition: transform .5s;
 
         @media screen and (min-width: 768px) {
           display: none;
@@ -249,15 +262,14 @@
         top: size-m(15);
         right: size-m(15);
         width: size-m(28);
-        height: size-m(35);
         background-image: url(./s7/n.svg);
-        background-size: cover;
+        background-size: contain;
         background-repeat: no-repeat;
+        aspect-ratio:28 / 35;
         @media screen and (min-width: 768px) {
-          top: size(30);
-          right: size(15);
+          top: size(50);
+          right: size(30);
           width: size(64);
-          height: size(81);
         }
       }
 
@@ -265,22 +277,27 @@
         width: 100%;
         display: flex;
         flex-wrap: wrap;
-        gap: size-m(15);
+        justify-content:space-between;
+        gap: size-m(12);
         order: 2;
+        margin-bottom:size-m(12);
         @media screen and (min-width: 768px) {
-          max-width: 40%;
+          width: size(645);
           gap: size(15);
           order: 1;
+        margin-bottom:0;
         }
 
         .pic_item {
+          flex: 1;
           img {
-            max-width: 100%;
+            width: 100%;
           }
           @media screen and (min-width: 768px) {
           }
 
           &:nth-child(1) {
+          flex: 1 100%;
             width: 100%;
             @media screen and (min-width: 768px) {
             }
@@ -302,11 +319,12 @@
         }
 
         p {
+          flex: 1 100%;
           color: #828683;
           font-size: size-m(10);
           font-weight: 400;
           letter-spacing: 0;
-          transform: translateY(-100%);
+          transform: translateY(-80%);
 
           @media screen and (min-width: 768px) {
             font-size: size(16);
@@ -318,14 +336,20 @@
       .pattern {
         width: 100%;
         order: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    flex-direction:column;
+        
         @media screen and (min-width: 768px) {
           order: 2;
-          max-width: 60%;
-          padding: 0 size(150);
+          flex: 1;
+        //  padding: 0 size(150);
         }
 
         img {
           max-width: 100%;
+          margin: auto;
           @media screen and (min-width: 768px) {
           }
         }
@@ -338,14 +362,16 @@
           font-size: size-m(18.57);
           padding-bottom: size-m(5);
           margin-bottom: size-m(5);
-          padding-top: size-m(30);
-          border-bottom: size-m(2) solid #162783;
+          padding-top: size-m(20);
+            width: size-m(310);
+          border-bottom: size-m(1) solid #162783;
           @media screen and (min-width: 768px) {
             padding-top: size(30);
             font-size: size(42);
             border-bottom: size(2) solid #162783;
             padding-bottom: size(15);
             margin-bottom: size(15);
+            width: size(703);
           }
 
           span {
@@ -433,7 +459,7 @@
         display: block;
         width: size(31.7);
         height: size(124);
-        box-shadow: 0 0 size(10) rgba(0, 0, 0, 0.15);
+      //  box-shadow: 0 0 size(10) rgba(0, 0, 0, 0.15);
       }
 
       &.swiper-button-disabled {
@@ -496,23 +522,22 @@
       font-weight: 400;
       font-size: size-m(11);
       color: #828683;
-      margin-top: size-m(15);;
-      @media screen and (max-width: 767px) {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: size-m(65);
-      }
+      margin-bottom: size-m(70);
       @media screen and (min-width: 768px) { 
         font-size: size(14);
-        margin-top: size(30);;
+        margin-top: size(30);
+      margin-bottom: 0;
       }
     }
 }
 </style>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, computed, getCurrentInstance } from 'vue';
+
+const globals = getCurrentInstance().appContext.config.globalProperties
+const isMobile = computed(() => globals.$isMobile())
+
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { EffectFade, Navigation } from 'swiper';
 import 'swiper/css';
@@ -522,22 +547,22 @@ import 'swiper/css/navigation';
 import img1_1 from './s7/1-1.jpg';
 import img1_2 from './s7/1-2.jpg';
 import img1_3 from './s7/1-3.jpg';
-import img1 from './s7/1.jpg';
+import img1 from './s7/1.webp';
 
 import img2_1 from './s7/2-1.jpg';
 import img2_2 from './s7/2-2.jpg';
 import img2_3 from './s7/2-3.jpg';
-import img2 from './s7/2.jpg';
+import img2 from './s7/2.webp';
 
 import img3_1 from './s7/3-1.jpg';
 import img3_2 from './s7/3-2.jpg';
 import img3_3 from './s7/3-3.jpg';
-import img3 from './s7/3.jpg';
+import img3 from './s7/3.webp';
 
 import img4_1 from './s7/4-1.jpg';
 import img4_2 from './s7/4-2.jpg';
 import img4_3 from './s7/4-3.jpg';
-import img4 from './s7/4.jpg';
+import img4 from './s7/4.webp';
 
 // 將四組資料明確定義為陣列，未來可直接修改內容
 const slidesData = ref([
