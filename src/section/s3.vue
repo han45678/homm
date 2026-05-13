@@ -134,7 +134,7 @@
 
       @media screen and (min-width: 768px) {
         margin-top: size(0);
-        max-width: size(600);
+        max-width: size(800);
       }
     }
 
@@ -229,20 +229,18 @@
     .description {
       margin: 0 auto;
       @media screen and (min-width: 768px) {
-        max-width: size(800);
       }
       p {
         font-family: 'Noto Sans TC';
         font-weight: 300;
         font-size: size-m(14);
-        line-height: 170%;
+        line-height: 1.7;
         letter-spacing:-.01em;
         color: #333;
         text-align: justify;
 
         @media screen and (min-width: 768px) {
-          font-size: size(14);
-          line-height: size(24);
+          font-size: size(18);
           text-align: left;
         letter-spacing: 0;
         }

@@ -413,14 +413,14 @@
 
         p {
           text-align: center;
-          font-weight: 300;
+          font-weight: 400;
           font-size: size-m(10);
           letter-spacing: 0%;
           text-align: center;
           color: #162783;
           margin-bottom: size-m(30);
           @media screen and (min-width: 768px) {
-            font-size: size(14);
+            font-size: size(18);
             margin-bottom: 0;
           }
 
@@ -524,7 +524,7 @@
       color: #828683;
       margin-bottom: size-m(70);
       @media screen and (min-width: 768px) { 
-        font-size: size(14);
+        font-size: size(18);
         margin-top: size(30);
       margin-bottom: 0;
       }

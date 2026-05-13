@@ -40,6 +40,7 @@
     }
     max-width: unset;
       background:url("@/section/s6/map.webp") 50%;
+      background-size: cover;
     //    background-size: 100% auto;
   }
 }
